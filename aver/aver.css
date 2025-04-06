@@ -1,0 +1,71 @@
+@font-face {
+    font-family: mulish;
+    src: url(../fonts/Mulish-VariableFont_wght.ttf);
+}
+body {
+    margin: 0 auto;
+    background: #000;
+    font-family: mulish;
+    padding: 50px;
+    width: 75%;
+}
+h1 {
+    font-size: 39px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 27px;
+}
+div.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+input {
+    padding: 27px;
+    width: 670px;
+    background: #111;
+    margin: 0 auto;
+    margin-top: 33px;
+    margin-bottom: 0px;
+    border-radius: 27px;
+    border: 3px solid #4000ff;
+    font-size: 27px;
+    color: #fff;
+}
+input:focus {
+    outline: none;
+}
+button#cal {
+    border-bottom: 5px solid #1d1d1d;
+    border-right: 5px solid #1d1d1d;
+    border-top: 5px solid #faa;
+    border-left: 5px solid #faa;
+    border-radius: 19px;
+    padding: 27px;
+    background: #4000ff;
+    color: #c9c9c9;
+    margin-top: 33px;
+    font-size: 33px;
+}
+button#cal:hover {
+    filter: blur(1px) brightness(100%) grayscale(27%);
+}
+button#cal:active {
+    background: #000;
+    color: #fff;
+}
+@keyframes move {
+    0% {
+        rotate: -45deg;
+        margin-right: -555px;
+    }
+    50% {
+        rotate: 45deg;
+        margin-right: 555px;
+    }
+    100% {
+        rotate: -45deg;
+        margin-right: -555px;
+    }
+}

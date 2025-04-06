@@ -1,0 +1,122 @@
+@font-face {
+    font-family: mulish;
+    src: url(../fonts/Mulish-VariableFont_wght.ttf);
+}
+body {
+    font-family: mulish;
+    background: #000;
+}
+h2 {
+    margin-right: 755px;
+    margin-top: 27px;
+    font-size: 41px;
+    color: #55ff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2 img {
+    transform: rotate(180deg);
+    width: 25px;
+    margin-right: 695px;
+}
+h2 img:hover {
+    background: #eee;
+    padding: 5px;
+    border-radius: 27px;
+}
+div#manual {
+    height: 153px;
+    background: #eee;
+    width: 75%;
+    margin-left: 200px;
+    margin-bottom: 55px;
+    border-radius: 27px;
+    text-align: center;
+}
+h1#manual-write {
+    color: #300;
+    font-size: 45px;
+    font-weight: bold;
+    position: relative;
+    top: 9px;
+    left: 95px;
+    text-align: left;
+}
+h1#manual-text {
+    color: #555;
+    font-size: 45px;
+    position: relative;
+    top: -51px;
+    left: 95px;
+    text-align: left;
+    padding-top: 25px;
+}
+section.spot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.calculator {
+    background: #ccc;
+    display: grid;
+    grid-template-columns: 110px 110px 110px 110px;
+    grid-gap: 15px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 520px;
+    height: 530px;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    border-radius: 27px;
+    margin-bottom: 35px;
+    border: 9px solid #999;
+    box-shadow: 1px 1px 12px 12px;
+}
+div.calculator button {
+    height: 100px;
+    width: 100px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    margin-right: 15px;
+}
+div.calculator button img {
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+    border: #aaa solid 3px;
+    filter: invert(0%);
+}
+div.calculator button img:hover {
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+    border: #aaa solid 3px;
+    filter: invert(89%);
+}
+div.cen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+button.tick {
+    width: 59px;
+    height: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 5px solid rgb(255, 251, 145);
+    border-radius: 50%;
+    box-shadow: 1px 1px 9px 3px;
+    font-size: 33px;
+    text-align: center;
+}
+button.tick img {
+    width: 79px;
+}

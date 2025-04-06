@@ -1,0 +1,88 @@
+@font-face {
+    font-family: mulish;
+    src: url(../fonts/Mulish-VariableFont_wght.ttf);
+}
+body {
+    margin: 0 auto;
+    background: #000;
+    font-family: mulish;
+    padding: 50px;
+    width: 75%;
+}
+h1 {
+    font-size: 39px;
+    color: #fff;
+    text-align: center;
+}
+div.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h3#score {
+    font-size: 39px;
+    color: #fff;
+}
+h3#score:hover {
+    animation-name: move;
+    animation-duration: .7s;
+}
+@keyframes move {
+    0% {
+        margin-left: 0px;
+        color: white;
+        font-size: 39px;
+    }
+    50% {
+        margin-left: 100px;
+        color: cyan;
+        font-size: 41px;
+    }
+    100% {
+        margin-left: 0px;
+        color: white;
+        font-size: 39px;
+    }
+}
+h3#life {
+    font-size: 39px;
+    color: #fff;
+}
+div.box {
+    overflow: hidden;
+    display: flex;
+    width: 500px;
+    height: 500px;
+    border-radius: 9px;
+    border: 5px solid #2e2e2e;
+    margin: 0 auto;
+    background: #1d1d1d;
+}
+div#a {
+    width: 100px;
+    height: 100px;
+    background: #ff0;
+    position: relative;
+    left: 150px;
+    top: 150px;
+    border-radius: 50%;
+    touch-action: pan-x;
+}
+div#b {
+    width: 100px;
+    height: 100px;
+    background: #0f0;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+}
+div#c {
+    width: 100px;
+    height: 100px;
+    background: #f00;
+    position: relative;
+    left: 50px;
+    top: 250px;
+    border-radius: 50%;
+}

@@ -1,0 +1,2344 @@
+<!DOCTYPE html
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Calculator</title>
+        <link rel="stylesheet" href="css/c.css">
+        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+    <body style="text-align: center;">
+        <h2><a href="home.html"><img src="images/arrow.svg" alt=""></a>Calculate</h2><br>
+        <div id="manual" style="text-align: center;">
+            <h1 id="manual-write"></h1>
+            <h1 id="manual-text"></h1>
+        </div>
+        <section class="spot">
+            <div class="calculator">
+                <button py-click="one()" id="manual"><img src="images/1.png" alt=""/></button>
+                <button py-click="two()" id="manual"><img src="images/2.png" alt=""/></button>
+                <button py-click="three()" id="manual"><img src="images/3.png" alt=""/></button>
+                <button py-click="p()" id="manual"><img src="images/p.png" alt=""/></button>
+                <button py-click="four()" id="manual"><img src="images/4.png" alt=""/></button>
+                <button py-click="five()" id="manual"><img src="images/5.png" alt=""/></button>
+                <button py-click="six()" id="manual"><img src="images/6.png" alt=""/></button>
+                <button py-click="s()" id="manual"><img src="images/s.png" alt=""/></button>
+                <button py-click="seven()" id="manual"><img src="images/7.png" alt=""/></button>
+                <button py-click="eight()" id="manual"><img src="images/8.png" alt=""/></button>
+                <button py-click="nine()" id="manual"><img src="images/9.png" alt=""/></button>
+                <button py-click="m()" id="manual"><img src="images/m.png" alt=""/></button>
+                <button py-click="dot()" id="manual"><img src="images/dot.png" alt=""/></button>
+                <button py-click="zero()" id="manual"><img src="images/0.png" alt=""/></button>
+                <button py-click="pow()" id="manual"><img src="images/pow.png" alt=""/></button>
+                <button py-click="d()" id="manual"><img src="images/d.png" alt=""/></button>
+            </div>
+        </section>
+        <div class="cen">
+            <button py-click="calculate()" class="tick" style="margin-right: 25px;"><img src="images/tick.png" alt=""></button>
+            <button py-click="clear()" class="tick" style="color: red;">C</button>
+            <button py-click="bs()" class="tick" style="margin-left: 25px;"><img src="images/bs.png" alt="" style="width: 27px;"/></button>
+        </div>
+        <py-script>
+        def one():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "1"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 1"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}1"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def two():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "2"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 2"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}2"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def three():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "3"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 3"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}3"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def p():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = ""
+                else:
+                    manual_div.element.innerText = f"{manual_div.element.innerText} + "
+        def four():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "4"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 4"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}4"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def five():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "5"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 5"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}5"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def six():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "6"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 6"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}6"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def s():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = ""
+                else:
+                    manual_div.element.innerText = f"{manual_div.element.innerText} - "
+        def seven():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "7"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 7"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}7"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def eight():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "8"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 8"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}8"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def nine():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "9"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 9"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}9"
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def m():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = ""
+                else:
+                    manual_div.element.innerText = f"{manual_div.element.innerText} x "
+        def dot():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "."
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} ."
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}."
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_text.element.innerText = f"{sen}"
+        def zero():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = "0"
+                else:
+                    a = manual_div.element.innerText.split()
+                    v = len(a)-1
+                    n = a[v]
+                    
+                    if not n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText} 0"
+                    if n.isdigit():
+                        manual_div.element.innerText = f"{manual_div.element.innerText}0"
+                        sen = manual_div.element.innerText
+                        a = sen.split()
+                        s = a[len(a)-1]
+                        q = list(s)
+                        l = q[len(q)-1]
+                        if l == str(l):
+                            l = int(l)
+                            if l == int(l):
+                                pass
+                            else:
+                                c = q.count(".")
+                                if int(c) == 1:
+                                    pass
+                                else:
+                                    a.remove(a[len(a)-1])
+            
+                        while "^" in a:
+                            p = a.index("^")
+                            n1 = a[int(p)-1]
+                            n2 = a[int(p)+1]
+                            a = sen.split()
+                            if str(n1).isdigit():
+                                if str(n2).isdigit():
+                                    ans = int(n1) ** int(n2)
+                                    sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if str(n2).isdigit():
+                                        ans = float(n1) ** int(n2)
+                                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                            if str(n1).isdigit():
+                                if not str(n2).isdigit():
+                                    c = n2.count(".")
+                                    if c == 1:
+                                        ans = int(n1) ** float(n2)
+                                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if not str(n2).isdigit():
+                                        c = n2.count(".")
+                                        if c == 1:
+                                            ans = float(n1) ** float(n2)
+                                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                        while "%" in a:
+                            p = a.index("%")
+                            n1 = a[int(p)-1]
+                            n2 = a[int(p)+1]
+                            a = sen.split()
+                            if str(n1).isdigit():
+                                if str(n2).isdigit():
+                                    ans = int(n1) / int(n2)
+                                    sen = sen.replace(f"{n1} % {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if str(n2).isdigit():
+                                        ans = float(n1) / int(n2)
+                                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                            if str(n1).isdigit():
+                                if not str(n2).isdigit():
+                                    c = n2.count(".")
+                                    if c == 1:
+                                        ans = int(n1) / float(n2)
+                                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if not str(n2).isdigit():
+                                        c = n2.count(".")
+                                        if c == 1:
+                                            ans = float(n1) / float(n2)
+                                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                        while "x" in a:
+                            p = a.index("x")
+                            n1 = a[int(p)-1]
+                            n2 = a[int(p)+1]
+                            a = sen.split()
+                            if str(n1).isdigit():
+                                if str(n2).isdigit():
+                                    ans = int(n1) * int(n2)
+                                    sen = sen.replace(f"{n1} x {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if str(n2).isdigit():
+                                        ans = float(n1) * int(n2)
+                                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                            if str(n1).isdigit():
+                                if not str(n2).isdigit():
+                                    c = n2.count(".")
+                                    if c == 1:
+                                        ans = int(n1) * float(n2)
+                                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if not str(n2).isdigit():
+                                        c = n2.count(".")
+                                        if c == 1:
+                                            ans = float(n1) * float(n2)
+                                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                        while "+" in a:
+                            p = a.index("+")
+                            n1 = a[int(p)-1]
+                            n2 = a[int(p)+1]
+                            a = sen.split()
+                            if str(n1).isdigit():
+                                if str(n2).isdigit():
+                                    ans = int(n1) + int(n2)
+                                    sen = sen.replace(f"{n1} + {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if str(n2).isdigit():
+                                        ans = float(n1) + int(n2)
+                                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                            if str(n1).isdigit():
+                                if not str(n2).isdigit():
+                                    c = n2.count(".")
+                                    if c == 1:
+                                        ans = int(n1) + float(n2)
+                                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if not str(n2).isdigit():
+                                        c = n2.count(".")
+                                        if c == 1:
+                                            ans = float(n1) + float(n2)
+                                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                        while "-" in a:
+                            p = a.index("-")
+                            n1 = a[int(p)-1]
+                            n2 = a[int(p)+1]
+                            a = sen.split()
+                            if str(n1).isdigit():
+                                if str(n2).isdigit():
+                                    ans = int(n1) - int(n2)
+                                    sen = sen.replace(f"{n1} - {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if str(n2).isdigit():
+                                        ans = float(n1) - int(n2)
+                                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                            if str(n1).isdigit():
+                                if not str(n2).isdigit():
+                                    c = n2.count(".")
+                                    if c == 1:
+                                        ans = int(n1) - float(n2)
+                                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                            if not str(n1).isdigit():
+                                c = n1.count(".")
+                                if c == 1:
+                                    if not str(n2).isdigit():
+                                        c = n2.count(".")
+                                        if c == 1:
+                                            ans = float(n1) - float(n2)
+                                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                        if not str(sen).isdigit():
+                            p = sen.index(".")
+                            v = sen[int(p) + 1]
+                            l = sen[len(sen)-1]
+                            n = sen.index(f"{l}")
+                            b = int(n) - int(p)
+                            if v == l:
+                                if v == 0:
+                                    if l == 0:
+                                        if b == 1:
+                                            sen = sen.removesuffix(f"{sen[p]}{l}")
+                        manual_text.element.innerText = f"{sen}"
+        def pow():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = ""
+                else:
+                    manual_div.element.innerText = f"{manual_div.element.innerText} ^ "
+        def d():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if manual_div.element.innerText != int():
+                if manual_div.element.innerText == str():
+                    manual_div.element.innerText = ""
+                else:
+                    manual_div.element.innerText = f"{manual_div.element.innerText} %"
+        def clear():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            manual_text = Element("manual-text")
+            manual_div.element.innerText = f""
+            manual_text.element.innerText = f""
+        def calculate():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            sen = manual_div.element.innerText
+            a = sen.split()
+            s = a[len(a)-1]
+            q = list(s)
+            l = q[len(q)-1]
+            if l == str(l):
+                l = int(l)
+                if l == int(l):
+                    pass
+                else:
+                    c = q.count(".")
+                    if int(c) == 1:
+                        pass
+                    else:
+                        a.remove(a[len(a)-1])
+
+            while "^" in a:
+                p = a.index("^")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) ** int(n2)
+                        sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) ** int(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) ** float(n2)
+                            sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) ** float(n2)
+                                sen = sen.replace(f"{n1} ^ {n2}", str(ans))
+            while "%" in a:
+                p = a.index("%")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) / int(n2)
+                        sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) / int(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) / float(n2)
+                            sen = sen.replace(f"{n1} % {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) / float(n2)
+                                sen = sen.replace(f"{n1} % {n2}", str(ans))
+            while "x" in a:
+                p = a.index("x")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) * int(n2)
+                        sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) * int(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) * float(n2)
+                            sen = sen.replace(f"{n1} x {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) * float(n2)
+                                sen = sen.replace(f"{n1} x {n2}", str(ans))
+            while "+" in a:
+                p = a.index("+")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) + int(n2)
+                        sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) + int(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) + float(n2)
+                            sen = sen.replace(f"{n1} + {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) + float(n2)
+                                sen = sen.replace(f"{n1} + {n2}", str(ans))
+            while "-" in a:
+                p = a.index("-")
+                n1 = a[int(p)-1]
+                n2 = a[int(p)+1]
+                a = sen.split()
+                if str(n1).isdigit():
+                    if str(n2).isdigit():
+                        ans = int(n1) - int(n2)
+                        sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if str(n2).isdigit():
+                            ans = float(n1) - int(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if str(n1).isdigit():
+                    if not str(n2).isdigit():
+                        c = n2.count(".")
+                        if c == 1:
+                            ans = int(n1) - float(n2)
+                            sen = sen.replace(f"{n1} - {n2}", str(ans))
+                if not str(n1).isdigit():
+                    c = n1.count(".")
+                    if c == 1:
+                        if not str(n2).isdigit():
+                            c = n2.count(".")
+                            if c == 1:
+                                ans = float(n1) - float(n2)
+                                sen = sen.replace(f"{n1} - {n2}", str(ans))
+            if not str(sen).isdigit():
+                p = sen.index(".")
+                v = sen[int(p) + 1]
+                l = sen[len(sen)-1]
+                n = sen.index(f"{l}")
+                b = int(n) - int(p)
+                if v == l:
+                    if v == 0:
+                        if l == 0:
+                            if b == 1:
+                                sen = sen.removesuffix(f"{sen[p]}{l}")
+            manual_div.element.innerText = f"{sen}"
+        def bs():
+            manual_div = Element("manual-write")
+            manual_text = Element("manual-text")
+            if len(manual_div.element.innerText) != 0:
+                l = manual_div.element.innerText[len(manual_div.element.innerText)-1]
+                manual_div.element.innerText = manual_div.element.innerText.removesuffix(f"{l}")
+            manual_div.element.innerText = f"{manual_div.element.innerText}"
+            manual_text.element.innerText = f""
+        </py-script>
+    </body>
+</html>

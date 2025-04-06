@@ -1,0 +1,73 @@
+@font-face {
+    font-family: mulish;
+    src: url(../fonts/Mulish-VariableFont_wght.ttf);
+}
+body {
+    margin: 0 auto;
+    background: #000;
+    font-family: mulish;
+    padding: 50px;
+    width: 75%;
+}
+h1 {
+    font-size: 39px;
+    color: #fff;
+    text-align: center;
+}
+div.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 33px;
+}
+div.img img#image {
+    width: 111px;
+}
+div.form {
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input#input {
+    border: 3px solid #fff;
+    background: none;
+    padding: 11px;
+    border-radius: 9px;
+    width: 500px;
+    height: 50px;
+    font-size: 19px;
+    color: #fff;
+    margin-right: 27px;
+}
+input#input:focus {
+    outline: none;
+}
+div.clue {
+    width: 100%;
+    border: 5px solid #fff;
+    padding: 27px;
+    border-radius: 17px;
+}
+p#clu {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    width: 750px;
+    font-size: 27px;
+    height: max-content;
+    overflow-wrap: break-word;
+}
+h1#game {
+    margin-top: 33px;
+    margin-bottom: 33px;
+}
+div.form button {
+    background: none;
+    border: none;
+}
+div.form img#tick {
+    filter: invert(100%);
+    width: 50px;
+}
