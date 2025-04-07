@@ -48,10 +48,41 @@ h3#life {
     font-size: 39px;
     color: #fff;
 }
-div.box {
+h1#over {
+    color: red;
+}
+@keyframes mot {
+    0% {
+        color: red;
+        font-size: 49;
+        text-align: center;
+        letter-spacing: normal;
+    }
+    20% {
+        color: rgb(100, 0, 0);
+        rotate: 30deg;
+    }
+    40% {
+        color: rgb(100, 0, 0);
+        rotate: -30deg;
+    }
+    60% {
+        rotate: 0deg;
+    }
+    90% {
+        letter-spacing: 27px;
+    }
+    100% {
+        color: red;
+        font-size: 49;
+        text-align: center;
+        letter-spacing: normal;
+    }
+}
+div#box {
     overflow: hidden;
     display: flex;
-    width: 500px;
+    width: 590px;
     height: 500px;
     border-radius: 9px;
     border: 5px solid #2e2e2e;
@@ -61,28 +92,76 @@ div.box {
 div#a {
     width: 100px;
     height: 100px;
-    background: #ff0;
+    background: rgb(255, 217, 0);
     position: relative;
-    left: 150px;
+    left: 100px;
     top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     touch-action: pan-x;
+    font-size: 23px;
+    color: white;
 }
 div#b {
     width: 100px;
     height: 100px;
-    background: #0f0;
+    background: rgb(76, 0, 255);
     position: relative;
     left: 0px;
     top: 0px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    color: white;
+    animation: ani;
+    animation-duration: 27s;
+    animation-iteration-count: infinite;
 }
 div#c {
     width: 100px;
     height: 100px;
-    background: #f00;
+    background: rgb(0, 255, 98);
     position: relative;
     left: 50px;
     top: 250px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    color: white;
+    animation-name: any;
+    animation-duration: 27s;
+    animation-iteration-count: infinite;
+}
+div.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+div.game {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 45px;
+    rotate: -45deg;
+}
+div.game img {
+    filter: invert(100%);
+    width: 90px;
+}
+div.game img#left {
+    rotate: -135deg;
+}
+div.game img#up {
+    rotate: -45deg;
+}
+div.game img#right {
+    rotate: 135deg;
+}
+div.game img#down {
+    rotate: 45deg;
 }
