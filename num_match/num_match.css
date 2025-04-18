@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.game-container h1 {
+    font-size: 59px;
+    color: #fff;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+.score-board .lives {
+    font-size: 45px;
+}
+
+.draggable-number {
+    font-size: 24px;
+    padding: 15px;
+    background-color: rgb(157, 255, 0);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 170px;
+    color: #fff;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    background-color: teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+}
+
+.correct {
+    color: #0f0;
+}
+
+.wrong {
+    color: #f00;
+}
+#correctAnswer {
+    color: #f44336;
+}
+.lives {
+    color: #f44336;
+    font-size: 24px;
+}
+.modal .modal-content {
+    background: linear-gradient(rgb(0, 153, 255), #0044ff);
+}
+.modal .modal-content #continueBtn {
+    background: #9341ff;
+    border: 3px outset;
+    border-radius: 11px;
+    padding: 11px;
+    font-size: 15px;
+    color: #fff;
+}

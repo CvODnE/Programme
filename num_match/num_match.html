@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Matching Game</title>
+    <link rel="stylesheet" href="./num_match.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Number Matching Game</h1>
+        
+        <div class="score-board">
+            <div>Score: <span id="score">0</span></div>
+            <div><span id="lives" class="lives">❤️❤️❤️❤️❤️</span></div>
+        </div>
+        
+        <div id="draggable" class="draggable-number">0</div>
+        
+        <div class="boxes-container">
+            <div class="box" data-number="0">0</div>
+            <div class="box" data-number="0">0</div>
+            <div class="box" data-number="0">0</div>
+            <div class="box" data-number="0">0</div>
+        </div>
+    </div>
+    
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h1 id="resultText">Correct!</h1>
+            <h1 id="correctAnswer" style="display: none;"></h1>
+            <button id="continueBtn">Continue</button>
+        </div>
+    </div>
+    
+    <script src="./num_match.js"></script>
+</body>
+</html>
