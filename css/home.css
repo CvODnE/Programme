@@ -26,9 +26,9 @@ div.box::before {
     content: "";
     position: absolute;
 	width: 951px;
-    height: 399px;
+    height: 599px;
     left: 50%;
-	top: 65%;
+	top: 73%;
 	translate: -50% -50%;
 	z-index: -1;
 	padding: 27px;
