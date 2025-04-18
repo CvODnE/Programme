@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #000;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.game-container h1 {
+    font-size: 59px;
+    color: #fff;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+.score-board .lives {
+    font-size: 45px;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 0;
+    min-height: 200px;
+}
+
+.item {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    color: #fff;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+    color: white;
+}
+
+.correct {
+    color: #0f0;
+    font-size: 50px;
+}
+
+.wrong {
+    color: #f00;
+    font-size: 50px;
+}
+
+#correctAnswer {
+    color: #fff;
+    font-size: 30px;
+}
+
+.lives {
+    color: #f44336;
+}
+
+.modal .modal-content {
+    background: linear-gradient(rgb(0, 153, 255), #0044ff);
+}
+
+.modal .modal-content #continueBtn {
+    background: #9341ff;
+    border: 3px outset;
+    border-radius: 11px;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Emoji categories */
+.car { color: #ff5722; }
+.fruit { color: #4caf50; }
+.toy { color: #ffeb3b; }
+.animal { color: #9c27b0; }
+.other { color: #00bcd4; }
