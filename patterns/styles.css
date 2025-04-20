@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #6e48aa;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.lives {
+    color: #ff5252;
+}
+
+.pattern-container {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+#pattern-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-height: 80px;
+}
+
+.pattern-number {
+    font-size: 33px;
+    background-color: #444;
+    padding: 20px 10px;
+    border-radius: 5px;
+    min-width: 40px;
+}
+
+.question {
+    font-size: 24px;
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.option {
+    padding: 15px;
+    font-size: 20px;
+    background-color: #6e48aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #8e44ad;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #333;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 80%;
+}
+
+#resultText {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.correct {
+    color: #4CAF50;
+}
+
+.wrong {
+    color: #f44336;
+}
+
+#continueBtn {
+    padding: 12px 24px;
+    font-size: 20px;
+    background-color: #6e48aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#continueBtn:hover {
+    background-color: #8e44ad;
+}

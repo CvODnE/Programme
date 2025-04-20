@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Challenge</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Pattern Challenge!</h1>
+        
+        <div class="score-board">
+            <div>Score: <span id="score">0</span></div>
+            <div>Lives: <span id="lives">❤️❤️❤️❤️❤️</span></div>
+        </div>
+        
+        <div class="pattern-container">
+            <div id="pattern-display"></div>
+        </div>
+        
+        <div id="question" class="question"></div>
+        
+        <div class="options-container">
+            <button class="option" id="option1"></button>
+            <button class="option" id="option2"></button>
+            <button class="option" id="option3"></button>
+            <button class="option" id="option4"></button>
+        </div>
+    </div>
+    
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h1 id="resultText">Correct!</h1>
+            <h1 id="correctAnswer" style="display: none;"></h1>
+            <button id="continueBtn">Continue</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
