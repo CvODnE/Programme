@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Number Shoot Game</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <h1>Number Shoot Game</h1>
+
   <div class="score-board">
-    <div>Score : <span id="score">0</span></div>
+    <div>Score: <span id="score">0</span></div>
     <div class="lives" id="lives">❤️❤️❤️</div>
   </div>
 
-  <div class="game-box" id="gameBox">
-    <div class="circle yellow" id="yellowCircle">1 + 2</div>
-    <div class="circle red" id="redCircle">3</div>
-    <div class="circle green" id="greenCircle">4</div>
+  <div class="play-area" id="playArea">
+    <div class="circle yellow" id="yellowCircle" draggable="false">0 + 0</div>
+    <div class="circle red" id="redCircle">15</div>
+    <div class="circle green" id="greenCircle">10</div>
   </div>
 
-  <div class="modal" id="resultModal">
-    <div class="modal-content" id="modalContent">
-      <h2 id="resultText"></h2>
-      <p id="finalScore"></p>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div id="resultText"></div>
+      <div id="finalScore"></div>
       <button id="continueBtn">Continue</button>
     </div>
   </div>
-
-  <audio id="correctSound" src="correct.mp3" preload="auto"></audio>
-  <audio id="wrongSound" src="wrong.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
