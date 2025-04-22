@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorting Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>Sorting Challenge</h1>
+    <div class="score-board">
+      <div>Score: <span id="score">0</span></div>
+      <div>Lives: <span id="lives">❤️❤️❤️</span></div>
+    </div>
+    <div id="ruleText" class="rule-text">Loading...</div>
+    <div id="itemContainer" class="item-container"></div>
+    <button class="submit-btn" id="submitBtn">Submit</button>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div id="resultText"></div>
+      <div id="finalScore"></div>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Measurement Master</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>📏 Measurement Master</h1>
+
+    <div class="score-board">
+      <div>Score: <span id="score">0</span></div>
+      <div>Lives: <span id="lives">❤️❤️❤️</span></div>
+    </div>
+
+    <div class="scale-container">
+      <div class="scale">
+        <div class="tick" style="left: 0%;">0</div>
+        <div class="tick" style="left: 10%;">1</div>
+        <div class="tick" style="left: 20%;">2</div>
+        <div class="tick" style="left: 30%;">3</div>
+        <div class="tick" style="left: 40%;">4</div>
+        <div class="tick" style="left: 50%;">5</div>
+        <div class="tick" style="left: 60%;">6</div>
+        <div class="tick" style="left: 70%;">7</div>
+        <div class="tick" style="left: 80%;">8</div>
+        <div class="tick" style="left: 90%;">9</div>
+        <div class="tick" style="left: 100%;">10</div>
+      </div>
+    </div>
+
+    <div id="objectContainer">
+      <div id="objectBar"></div>
+    </div>
+
+    <div class="question" id="questionText">Loading...</div>
+
+    <div class="options" id="optionsContainer"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div id="resultText"></div>
+      <div id="finalScore"></div>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

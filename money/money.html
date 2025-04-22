@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Money Math Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="game-container">
+    <h1>💰 Money Math Master</h1>
+    <div class="score-board">
+      <div>Score: <span id="score">0</span></div>
+      <div>Lives: <span id="lives">❤️❤️❤️</span></div>
+    </div>
+
+    <div id="questionBox" class="question-box">
+      <div id="questionText" class="question"></div>
+    </div>
+
+    <div id="optionsContainer" class="options-container"></div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div id="resultText"></div>
+      <div id="finalScore"></div>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

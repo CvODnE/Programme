@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Time Master</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>⏰ Time Master</h1>
+
+    <div class="score-board">
+      <div>Score: <span id="score">0</span></div>
+      <div><span id="lives">❤️❤️❤️</span></div>
+    </div>
+
+    <div id="clockContainer" class="clock-container"></div>
+
+    <div class="question" id="questionText">Loading...</div>
+
+    <div class="options" id="optionsContainer"></div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div id="resultText"></div>
+      <div id="finalScore"></div>
+      <button id="continueBtn">Continue</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
